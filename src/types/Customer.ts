@@ -14,8 +14,8 @@ export type CustomerWithTaxID = {
     name: string, 
     email?: string, 
     phone?: string, 
-    taxID?: string, 
-    correlationID: string,
+    taxID: string, 
+    correlationID?: string,
     address?: Address
 }
 
