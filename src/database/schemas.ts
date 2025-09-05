@@ -1,4 +1,3 @@
-import { Customer } from "./customer";
 import { pgTable, text, integer, doublePrecision, boolean, jsonb } from "drizzle-orm/pg-core";
 
 
@@ -22,4 +21,13 @@ export const Charge = pgTable("Charges", {
     subaccount: text('subaccount'), 
     splits: jsonb('splits')
 
+})
+
+export const Customer = pgTable("Customers", {
+    correlationID: text().primaryKey().$defaultFn( () => Bun.randomUUIDv7()),
+    name: text().notNull(), 
+    email: text(), 
+    phone: text(), 
+    taxID: text(),   
+    address: jsonb()    
 })
